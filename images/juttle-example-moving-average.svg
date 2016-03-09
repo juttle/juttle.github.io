@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="855px" height="116px" viewBox="0 0 855 116" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6 (26304) - http://www.bohemiancoding.com/sketch -->
+    <title>Group Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home-Page" transform="translate(-85.000000, -1626.000000)">
+            <g id="Group-2" transform="translate(84.000000, 1478.000000)">
+                <g id="Group-Copy" transform="translate(0.000000, 148.000000)">
+                    <g id="Rectangle-2-+-elastic" transform="translate(48.000000, 88.000000)">
+                        <rect id="Rectangle-2" stroke="#979797" fill="#D8D8D8" x="0" y="0" width="101.395386" height="28" rx="8"></rect>
+                        <text id="influx" font-family="HelveticaNeue, Helvetica Neue" font-size="20" font-weight="normal" fill="#000000">
+                            <tspan x="26.9976929" y="20">influx</tspan>
+                        </text>
+                    </g>
+                    <g id="Rectangle-2-Copy-+-splunk" transform="translate(48.000000, 0.000000)">
+                        <rect id="Rectangle-2-Copy" stroke="#979797" fill="#D8D8D8" x="0" y="0" width="101" height="28" rx="8"></rect>
+                        <text id="opentsdb" font-family=".HelveticaNeueDeskInterface-Regular, .Helvetica Neue DeskInterface" font-size="20" font-weight="normal" fill="#000000">
+                            <tspan x="7.19715447" y="20">opentsdb</tspan>
+                        </text>
+                    </g>
+                    <g id="Rectangle-2-Copy-+-splunk-Copy" transform="translate(48.000000, 44.000000)">
+                        <g>
+                            <rect id="Rectangle-2-Copy" stroke="#979797" fill="#D8D8D8" x="0" y="0" width="101" height="28" rx="8"></rect>
+                            <text id="graphite" font-family=".HelveticaNeueDeskInterface-Regular, .Helvetica Neue DeskInterface" font-size="20" font-weight="normal" fill="#000000">
+                                <tspan x="13.2337398" y="20">graphite</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <text id="read" font-family="HelveticaNeue, Helvetica Neue" font-size="20" font-weight="normal" fill="#000000">
+                        <tspan x="0" y="63">read</tspan>
+                    </text>
+                    <text id="-last-:6-hours:-name" font-family="HelveticaNeue, Helvetica Neue" font-size="20" font-weight="normal" fill="#000000">
+                        <tspan x="157" y="63">-last :6 hours: name = ‘cpu’ | reduce -over :1h: -every :1m: avg(‘value’) by host</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

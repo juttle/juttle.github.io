@@ -1,0 +1,100 @@
+$primary: #7293A0;
+
+.hero {
+    background-color: $primary;
+    text-align: center;
+    color: white;
+    font-family: 'Courier New', monospace;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .title {
+        font-size: 48px;
+    }
+
+    .description {
+        font-size: 24px;
+    }
+
+    .sub-description {
+        margin-top: 5px;
+        font-size: 10px;
+    }
+
+    .buttons {
+        margin-top: 30px;
+    }
+}
+
+a {
+    color: $primary;
+}
+
+a.button {
+    border-radius: 5px;
+    background-color: #EEE;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.juttle-example {
+    font-family: 'Courier new', monospace;
+    font-size: 16px;
+    text-align: left;
+    .adapter {
+        display: inline-block;
+        color: $primary;
+        text-align: center;
+    }
+}
+pre {
+    text-align: left;
+}
+
+.sections {
+    background-color: #eee;
+}
+
+.section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    max-width: 1000px;
+
+    &.darker {
+        background-color: lightgrey;
+    }
+
+    .header {
+        font-size: 24px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .main {
+        margin-top: 20px;
+        text-align: center;
+
+        p {
+            font-size: 18px;
+        }
+    }
+}
+
+.components {
+    max-width: 1000px;
+
+    .row {
+        padding: 10px;
+    }
+    .description {
+        text-align: left;
+
+        .name {
+            font-weight: bold;
+        }
+    }
+
+    img {
+        max-width: 100%;
+    }
+}
