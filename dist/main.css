@@ -1,0 +1,77 @@
+.hero {
+  background-color: #7293A0;
+  text-align: center;
+  color: white;
+  font-family: 'Courier New', monospace;
+  padding-top: 50px;
+  padding-bottom: 50px; }
+  .hero .title {
+    font-size: 48px; }
+  .hero .description {
+    font-size: 24px; }
+  .hero .sub-description {
+    margin-top: 5px;
+    font-size: 10px; }
+  .hero .buttons {
+    margin-top: 30px; }
+
+a {
+  color: #7293A0; }
+
+a.button {
+  border-radius: 5px;
+  background-color: #EEE;
+  font-size: 20px;
+  padding: 10px; }
+
+pre {
+  text-align: left; }
+
+.sections {
+  background-color: #eee; }
+
+.section {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  max-width: 1000px; }
+  .section.darker {
+    background-color: #ddd; }
+  .section .header {
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px; }
+  .section .main {
+    text-align: center; }
+    .section .main p {
+      font-size: 18px; }
+
+.juttle-examples {
+  text-align: left;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 18px; }
+  .juttle-examples .name {
+    font-weight: bold; }
+  .juttle-examples .code {
+    font-family: 'Courier new', monospace;
+    font-size: 16px;
+    text-align: left; }
+    .juttle-examples .code .adapter {
+      display: inline-block;
+      color: #7293A0; }
+
+.components {
+  max-width: 1000px; }
+  .components .row {
+    padding: 10px; }
+  .components .description {
+    text-align: left; }
+    .components .description .name {
+      font-weight: bold; }
+  .components img {
+    max-width: 100%; }
+  .components pre {
+    height: 250px; }
+
+/*# sourceMappingURL=main.css.map */

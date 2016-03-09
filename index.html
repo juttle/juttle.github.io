@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="assets/bootstrap.min.css">
+        <script type="text/javascript" src="assets/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/typed.min.js"></script>
+        <script type="text/javascript" src="assets/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="dist/main.css">
+    </head>
+    <body>
+        <div class="hero">
+            <div class="title">Juttle</div>
+            <div class="description">One query language* to rule them all</div>
+            <div class="sub-description">*okay, more than just a query language, but KISS</div>
+            <div class="buttons">
+                <a class="button" href="https://github.com/juttle/juttle">GitHub</a>
+                <a class="button" href="http://juttle.github.io/juttle/">Docs</a>
+            </div>
+        </div>
+        <div class="sections">
+            <div class="section center-block">
+            </div>
+            <div class="section center-block darker">
+                <div class="main">
+                    <div class="juttle-examples">
+                        <p class="name">
+                            Write once, run against anything
+                        </p>
+                        <p>
+                            Find all the log lines with status_code 500 in the last day and return the per-minute counts - either from splunk, a file, or elastic:
+                        </p>
+                        <div class="code">
+                            read <span id="log-example-adapter" class="adapter" style="width: 60px; text-align: left;"></span> -last :1 day: status_code = 500 | reduce -every :1m: count()
+                        </div>
+                        <hr/>
+                        <p class="name">
+                            Moving averages are just one line away
+                        </p>
+                        <p>
+                            Return the 1 hour moving average CPU usage, updated every minute:
+                        </p>
+                        <div class="code">
+                            read <span id="moving-average-example-adapter" class="adapter" style="width: 80px;"></span> -last :6 hours: name = 'cpu' | reduce -over :1h: -every :1m: avg('value') by host
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section center-block">
+                <div class="header">
+                    Anatomy of a Juttle
+                </div>
+                <div class="main">
+                    <img id="juttle-anatomy" class="center-block" style="width: 90%;" src="images/juttle-anatomy.svg"/>
+                </div>
+            </div>
+            <div class="section center-block darker">
+                <div class="header">
+                    The supporting cast
+                </div>
+                <div class="main">
+                    <div class="components container">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="description">
+                                    <p class="name">
+                                        <a href="https://github.com/juttle/juttle-engine">Juttle Engine</a>
+                                    </p>
+                                    <p>
+                                        Juttle Engine brings together <a href="https://github.com/juttle/juttle">Juttle</a>, <a href="https://github.com/juttle/juttle-service">Juttle Service</a>, <a href="http://juttle.github.io/juttle/adapters">adapters</a>, <a href="https://github.com/juttle/juttle-service">Juttle Viewer</a>, <a href="https://github.com/juttle/juttle-viz">Juttle Viz</a>, and <a href="https://github.com/juttle/juttle-client-library">Juttle Client Library</a>.
+                                    </p>
+                                    <p>
+                                        Run juttles stored on your filesystem and see the results right in your browser.
+                                    </p>
+                                    <p>
+                                        Check out our <a href="http://demo.juttle.io/">demo environment</a>.
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <img class="center-block" src="images/stock_prices_example.png"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="description">
+                                    <p class="name">
+                                        <a href="http://juttle.github.io/juttle/adapters">Adapters</a>
+                                    </p>
+                                    <p>
+                                        Adapters are juttle's gateway to the world of data stores and services. There are already a bunch to get you started.
+                                    </p>
+                                    <p>
+                                        Don't see an adapter you need? Write one yourself or <a href="mailto:contact@jut.io">get in touch</a> and we'll help you out.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-7" style="font-size: 18px;">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <a href="https://github.com/juttle/juttle-elastic-adapter">Elastic</a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="https://github.com/juttle/juttle-influx-adapter">InfluxDB</a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="https://github.com/juttle/juttle-mysql-adapter">MySQL</a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <a href="https://github.com/juttle/juttle-sqlite-adapter">SQLite</a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="https://github.com/juttle/juttle-postgres-adapter">Postgres</a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="https://github.com/juttle/juttle-aws-adapter">AWS</a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <a href="https://github.com/juttle/juttle-s3-adapter">S3</a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="https://github.com/juttle/juttle-cloudwatch-adapter">Cloudwatch</a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="http://juttle.github.io/juttle/adapters/http">HTTP</a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <a href="https://github.com/juttle/juttle-redis-adapter">Redis</a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="https://github.com/juttle/juttle-graphite-adapter">Graphite</a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="https://github.com/juttle/juttle-opentsdb-adapter">OpenTSDB</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="description">
+                                    <p class="name">
+                                        <a href="https://github.com/juttle/juttle-service">Juttle Service</a>
+                                    </p>
+                                    <p>
+                                        Juttle Service exposes a REST API to run juttles. Hit it directly, or use <a href="https://github.com/juttle/juttle-client-library">Juttle Client Library</a> to make streaming juttles and charts a breeze.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#juttle-service-request" aria-controls="juttle-service-request" role="tab" data-toggle="tab">Request</a></li>
+                                    <li role="presentation"><a href="#juttle-service-response" aria-controls="juttle-service-response" role="tab" data-toggle="tab">Response</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="juttle-service-request">
+                                        <pre>
+POST /api/v0/jobs HTTP/1.1
+Host: localhost:2000
+Content-Type: application/json
+
+{
+  "bundle": {
+    "program": "emit -limit 2 | put v = count() | view table"
+  },
+  "wait": true
+}
+                                        </pre>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="juttle-service-response">
+                                        <pre>
+{
+  "output": {
+    "view0": {
+      "options": {
+        "_jut_time_bounds": []
+      },
+      "type": "table",
+      "data": [
+        {
+          "type": "points",
+          "points":[
+            {
+              "time": "$date$2016-03-09T18:31:10.047Z",
+              "v": 1
+            },
+            {
+              "time": "$date$2016-03-09T18:31:11.047Z",
+              "v": 2
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "errors": [],
+  "warnings":[]
+}
+                                        </pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="description">
+                                    <p class="name">
+                                        <a href="https://github.com/juttle/embedded-juttle">Embedded Juttle</a>
+                                    </p>
+                                    <p>
+                                        Embedded juttle lets you run juttle queries against in-memory data instead of data stores, right in the browser.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#embedded-juttle-code" aria-controls="embedded-juttle-code" role="tab" data-toggle="tab">Code</a></li>
+                                        <li role="presentation"><a href="#embedded-juttle-result" aria-controls="embedded-juttle-result" role="tab" data-toggle="tab">Result</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="embedded-juttle-code">
+                                            <pre>
+const points = [
+    {
+        time: new Date(1000),
+        v: 1
+    },
+    {
+        time: new Date(2000),
+        v: 2
+    }
+];
+
+let juttle = new EmbeddedJuttle('put v2 = v | view table');
+
+juttle.run({
+    wait: true,
+    points: points
+}).then((result) => {
+    console.log(JSON.stringify(result, null, 2));
+})
+.catch((err) => {
+    console.log("got an error trying to do runBatch: " + err);
+});
+                                            </pre>
+                                        </div>
+                                    <div role="tabpanel" class="tab-pane" id="embedded-juttle-result">
+                                        <pre>
+{
+  "output": {
+    "view0": {
+      "type": "table",
+      "options": {},
+      "data": [
+        {
+          "type": "point",
+          "point": {
+            "time": "1970-01-01T00:00:01.000Z",
+            "v": 1,
+            "v2": 1
+          }
+        },
+        {
+          "type": "point",
+          "point": {
+            "time": "1970-01-01T00:00:02.000Z",
+            "v": 2,
+            "v2": 2
+          }
+        }
+      ]
+    }
+  },
+  "warnings": [],
+  "errors": []
+}
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="main.js"></script>
+    </body>
+</html>
