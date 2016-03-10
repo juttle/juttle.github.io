@@ -37,16 +37,6 @@ a.button {
     padding: 10px;
 }
 
-.juttle-example {
-    font-family: 'Courier new', monospace;
-    font-size: 16px;
-    text-align: left;
-    .adapter {
-        display: inline-block;
-        color: $primary;
-        text-align: center;
-    }
-}
 pre {
     text-align: left;
 }
@@ -68,14 +58,37 @@ pre {
         font-size: 24px;
         text-align: center;
         font-weight: bold;
+        margin-bottom: 20px;
     }
 
     .main {
-        margin-top: 20px;
+        // margin-top: 20px;
         text-align: center;
 
         p {
             font-size: 18px;
+        }
+    }
+}
+
+.juttle-examples {
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    font-size: 18px;
+    
+    .name {
+        font-weight: bold;
+    }
+
+    .code {
+        font-family: 'Courier new', monospace;
+        font-size: 16px;
+        text-align: left;
+        .adapter {
+            display: inline-block;
+            color: $primary;
         }
     }
 }

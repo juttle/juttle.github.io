@@ -24,15 +24,6 @@ a.button {
   font-size: 20px;
   padding: 10px; }
 
-.juttle-example {
-  font-family: 'Courier new', monospace;
-  font-size: 16px;
-  text-align: left; }
-  .juttle-example .adapter {
-    display: inline-block;
-    color: #7293A0;
-    text-align: center; }
-
 pre {
   text-align: left; }
 
@@ -48,12 +39,27 @@ pre {
   .section .header {
     font-size: 24px;
     text-align: center;
-    font-weight: bold; }
+    font-weight: bold;
+    margin-bottom: 20px; }
   .section .main {
-    margin-top: 20px;
     text-align: center; }
     .section .main p {
       font-size: 18px; }
+
+.juttle-examples {
+  text-align: left;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 18px; }
+  .juttle-examples .name {
+    font-weight: bold; }
+  .juttle-examples .code {
+    font-family: 'Courier new', monospace;
+    font-size: 16px;
+    text-align: left; }
+    .juttle-examples .code .adapter {
+      display: inline-block;
+      color: #7293A0; }
 
 .components {
   max-width: 1000px; }

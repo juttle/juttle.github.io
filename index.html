@@ -21,43 +21,25 @@
             </div>
             <div class="section center-block darker">
                 <div class="main">
-                    <div class="components container">
-                        <div class="row">
-                            <div class="col-md-7">
-                                <div class="juttle-example">
-                                    read <span id="log-example-adapter" class="adapter" style="width: 70px;"></span> -last :1 day: status_code = 500<br/>| reduce -every :1m: count()
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="description">
-                                    <p class="name">
-                                        Write once, run against anything
-                                    </p>
-                                    <!-- <p>
-                                        Tired of learning query langauge after query language for your various data stores?<br/>With juttle, you can write your query once and run it against any of them.
-                                    </p> -->
-                                    <p>
-                                        This juttle finds all the log lines with status_code 500 in the last day and returns the per-minute counts - either from splunk, a file, or elastic!
-                                    </p>
-                                </div>
-                            </div>
+                    <div class="juttle-examples">
+                        <p class="name">
+                            Write once, run against anything
+                        </p>
+                        <p>
+                            Find all the log lines with status_code 500 in the last day and returns the per-minute counts - either from splunk, a file, or elastic:
+                        </p>
+                        <div class="code">
+                            read <span id="log-example-adapter" class="adapter" style="width: 60px; text-align: left;"></span> -last :1 day: status_code = 500 | reduce -every :1m: count()
                         </div>
-                        <div class="row">
-                            <div class="col-md-7">
-                                <div class="juttle-example">
-                                    read <span id="moving-average-example-adapter" class="adapter" style="width: 90px;"></span> -last :6 hours: name = 'cpu'<br/>| reduce -over :1h: -every :1m: avg('value') by host
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="description">
-                                    <p class="name">
-                                        Moving averages are just one line away
-                                    </p>
-                                    <p>
-                                        This juttle returns the 1 hour moving average CPU usage, updated every minute.
-                                    </p>
-                                </div>
-                            </div>
+                        <hr/>
+                        <p class="name">
+                            Moving averages are just one line away
+                        </p>
+                        <p>
+                            Return the 1 hour moving average CPU usage, updated every minute:
+                        </p>
+                        <div class="code">
+                            read <span id="moving-average-example-adapter" class="adapter" style="width: 80px;"></span> -last :6 hours: name = 'cpu' | reduce -over :1h: -every :1m: avg('value') by host
                         </div>
                     </div>
                 </div>
