@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="assets/bootstrap.min.css">
         <script type="text/javascript" src="assets/jquery.min.js"></script>
         <script type="text/javascript" src="assets/typed.min.js"></script>
+        <script type="text/javascript" src="assets/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="dist/main.css">
     </head>
     <body>
@@ -153,11 +154,57 @@
                                 </div>
                             </div>
                             <div class="col-md-7">
-                                <pre>
-$ curl -XPOST -d '{ "bundle": { "program": "emit -limit 2 | put v = count() | view table" }, "wait": true }' http://localhost:2000/api/v0/jobs -H 'Content-Type: application/json'
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#juttle-service-request" aria-controls="juttle-service-request" role="tab" data-toggle="tab">Request</a></li>
+                                    <li role="presentation"><a href="#juttle-service-response" aria-controls="juttle-service-response" role="tab" data-toggle="tab">Response</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="juttle-service-request">
+                                        <pre>
+POST /api/v0/jobs HTTP/1.1
+Host: localhost:2000
+Content-Type: application/json
 
-{"output":{"view0":{"options":{"_jut_time_bounds":[]},"type":"table","data":[{"type":"points","points":[{"time":"$date$2016-03-09T18:31:10.047Z","v":1},{"time":"$date$2016-03-09T18:31:11.047Z","v":2}]}]}},"errors":[],"warnings":[]}
-                                </pre>
+{
+  "bundle": {
+    "program": "emit -limit 2 | put v = count() | view table"
+  },
+  "wait": true
+}
+                                        </pre>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="juttle-service-response">
+                                        <pre>
+{
+  "output": {
+    "view0": {
+      "options": {
+        "_jut_time_bounds": []
+      },
+      "type": "table",
+      "data": [
+        {
+          "type": "points",
+          "points":[
+            {
+              "time": "$date$2016-03-09T18:31:10.047Z",
+              "v": 1
+            },
+            {
+              "time": "$date$2016-03-09T18:31:11.047Z",
+              "v": 2
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "errors": [],
+  "warnings":[]
+}
+                                        </pre>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <hr/>
@@ -173,7 +220,13 @@ $ curl -XPOST -d '{ "bundle": { "program": "emit -limit 2 | put v = count() | vi
                                 </div>
                             </div>
                             <div class="col-md-7">
-                                <pre>
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#embedded-juttle-code" aria-controls="embedded-juttle-code" role="tab" data-toggle="tab">Code</a></li>
+                                        <li role="presentation"><a href="#embedded-juttle-result" aria-controls="embedded-juttle-result" role="tab" data-toggle="tab">Result</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="embedded-juttle-code">
+                                            <pre>
 const points = [
     {
         time: new Date(1000),
@@ -196,7 +249,42 @@ juttle.run({
 .catch((err) => {
     console.log("got an error trying to do runBatch: " + err);
 });
-                                </pre>
+                                            </pre>
+                                        </div>
+                                    <div role="tabpanel" class="tab-pane" id="embedded-juttle-result">
+                                        <pre>
+{
+  "output": {
+    "view0": {
+      "type": "table",
+      "options": {},
+      "data": [
+        {
+          "type": "point",
+          "point": {
+            "time": "1970-01-01T00:00:01.000Z",
+            "v": 1,
+            "v2": 1
+          }
+        },
+        {
+          "type": "point",
+          "point": {
+            "time": "1970-01-01T00:00:02.000Z",
+            "v": 2,
+            "v2": 2
+          }
+        }
+      ]
+    }
+  },
+  "warnings": [],
+  "errors": []
+}
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

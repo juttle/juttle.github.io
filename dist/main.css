@@ -71,5 +71,7 @@ pre {
       font-weight: bold; }
   .components img {
     max-width: 100%; }
+  .components pre {
+    height: 250px; }
 
 /*# sourceMappingURL=main.css.map */

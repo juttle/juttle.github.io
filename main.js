@@ -1,4 +1,14 @@
 
+// $('.nav-tabs.juttle-service a').click(function (e) {
+//   e.preventDefault()
+//   $(this).tab('show')
+// });
+
+$('.nav-tabs a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+});
+
 $("#log-example-adapter").typed({
   strings: ["elastic", "file", "splunk"],
   loop: true,
