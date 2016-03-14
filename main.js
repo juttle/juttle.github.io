@@ -14,7 +14,7 @@ $("#log-example-adapter").typed({
   loop: true,
   showCursor: false,
   typeSpeed: 0,
-  backDelay: 1000
+  backDelay: 2000
 });
 
 $("#moving-average-example-adapter").typed({
@@ -22,5 +22,5 @@ $("#moving-average-example-adapter").typed({
   loop: true,
   showCursor: false,
   typeSpeed: 0,
-  backDelay: 1000
+  backDelay: 2000
 });
