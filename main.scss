@@ -1,5 +1,9 @@
 $primary: #7293A0;
 
+body {
+    background-color: #eee;
+}
+
 .hero {
     background-color: $primary;
     text-align: center;
@@ -42,7 +46,8 @@ pre {
 }
 
 .sections {
-    background-color: #eee;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .section {
