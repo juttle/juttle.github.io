@@ -15,33 +15,43 @@
             <div class="description">One query language* to rule them all</div>
             <div class="sub-description">*okay, more than just a query language, but KISS</div>
             <div class="buttons">
-                <a class="button" href="https://github.com/juttle/juttle">GitHub</a>
-                <a class="button" href="http://juttle.github.io/juttle/">Docs</a>
+                <a class="btn btn-default btn-lg" href="https://github.com/juttle/juttle"><img src="images/icon-github.svg" /> GitHub</a>
+                <a class="btn btn-default btn-lg" href="http://juttle.github.io/juttle/">Docs</a>
             </div>
         </div>
         <div class="sections">
-            <div class="section center-block darker">
-                <div class="main">
-                    <div class="juttle-examples">
-                        <p class="name">
-                            Write once, run against anything
-                        </p>
-                        <p>
-                            Find all the log lines with status_code 500 in the last day and return the per-minute counts - either from splunk, a file, or elastic:
-                        </p>
-                        <div class="code">
-                            read <span id="log-example-adapter" class="adapter" style="width: 60px; text-align: left;"></span> -last :1 day: status_code = 500 | reduce -every :1m: count()
-                        </div>
-                        <hr/>
-                        <p class="name">
-                            Moving averages are just one line away
-                        </p>
-                        <p>
-                            Return the 1 hour moving average CPU usage, updated every minute:
-                        </p>
-                        <div class="code">
-                            read <span id="moving-average-example-adapter" class="adapter" style="width: 80px;"></span> -last :6 hours: name = 'cpu' | reduce -over :1h: -every :1m: avg('value') by host
-                        </div>
+            <div class="section container">
+                <div class="juttle-example">
+                    <h3>
+                        Write once, run against anything
+                    </h3>
+                    <p class="description">
+                        Find all the log lines with status_code 500 in the last day and return the per-minute counts - either from splunk, a file, or elastic:
+                    </p>
+                    <div class="code highlight">
+                        <span class="kr">read</span>
+                        <span id="log-example-adapter" class="adapter" style="width: 60px;"></span>
+                        -last <span class="s s-Moment">:1 day:</span> status_code = <span class="mi">500</span>
+                        <span class="o">|</span> <span class="kr">reduce</span> -every
+                        <span class="s s-Moment">:1m:</span> count()
+                    </div>
+                </div>
+                <div class="juttle-example">
+                    <h3>
+                        Moving averages are just one line away
+                    </h3>
+                    <p class="description">
+                        Return the 1 hour moving average CPU usage, updated every minute:
+                    </p>
+                    <div class="code highlight">
+                        <span class="kr">read</span>
+                        <span id="moving-average-example-adapter" class="adapter" style="width: 80px;"></span>
+                        -last <span class="s s-Momemnt">:6 hours:</span>
+                        name = <span class="s2">'cpu'</span>
+                        <br />
+                        <span class="o">|</span> <span class="kr">reduce</span> -over
+                        <span class="s s-Moment">:1h:</span> -every
+                        <span class="s s-Moment">:1m:</span> avg(<span class="s2">'value'</span>) by host
                     </div>
                 </div>
             </div>
@@ -94,61 +104,23 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-md-7" style="font-size: 18px;">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <a href="https://github.com/juttle/juttle-elastic-adapter">Elastic</a>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a href="https://github.com/juttle/juttle-influx-adapter">InfluxDB</a>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a href="https://github.com/juttle/juttle-mysql-adapter">MySQL</a>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <a href="https://github.com/juttle/juttle-sqlite-adapter">SQLite</a>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a href="https://github.com/juttle/juttle-postgres-adapter">Postgres</a>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a href="https://github.com/juttle/juttle-aws-adapter">AWS</a>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <a href="https://github.com/juttle/juttle-s3-adapter">S3</a>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a href="https://github.com/juttle/juttle-cloudwatch-adapter">Cloudwatch</a>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a href="http://juttle.github.io/juttle/adapters/http">HTTP</a>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <a href="https://github.com/juttle/juttle-redis-adapter">Redis</a>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a href="https://github.com/juttle/juttle-graphite-adapter">Graphite</a>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a href="https://github.com/juttle/juttle-opentsdb-adapter">OpenTSDB</a>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <a href="https://github.com/juttle/juttle-splunk-adapter">Splunk</a>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a href="http://juttle.github.io/juttle/adapters/file">File</a>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a href="http://juttle.github.io/juttle/adapters/stdio">STDIO</a>
-                                    </div>
+                            <div class="col-md-7">
+                                <div class="adapters-list">
+                                    <a href="https://github.com/juttle/juttle-elastic-adapter">Elastic</a>
+                                    <a href="https://github.com/juttle/juttle-influx-adapter">InfluxDB</a>
+                                    <a href="https://github.com/juttle/juttle-mysql-adapter">MySQL</a>
+                                    <a href="https://github.com/juttle/juttle-sqlite-adapter">SQLite</a>
+                                    <a href="https://github.com/juttle/juttle-postgres-adapter">Postgres</a>
+                                    <a href="https://github.com/juttle/juttle-aws-adapter">AWS</a>
+                                    <a href="https://github.com/juttle/juttle-s3-adapter">S3</a>
+                                    <a href="https://github.com/juttle/juttle-cloudwatch-adapter">Cloudwatch</a>
+                                    <a href="http://juttle.github.io/juttle/adapters/http">HTTP</a>
+                                    <a href="https://github.com/juttle/juttle-redis-adapter">Redis</a>
+                                    <a href="https://github.com/juttle/juttle-graphite-adapter">Graphite</a>
+                                    <a href="https://github.com/juttle/juttle-opentsdb-adapter">OpenTSDB</a>
+                                    <a href="https://github.com/juttle/juttle-splunk-adapter">Splunk</a>
+                                    <a href="http://juttle.github.io/juttle/adapters/file">File</a>
+                                    <a href="http://juttle.github.io/juttle/adapters/stdio">STDIO</a>
                                 </div>
                             </div>
                         </div>

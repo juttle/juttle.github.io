@@ -1,4 +1,9 @@
-$primary: #7293A0;
+@import "./syntax";
+
+$primary: #4D7888;
+$secondary: #F39D00;
+$gray: #AAA;
+$gray-dark: #555;
 
 body {
     background-color: #eee;
@@ -13,16 +18,16 @@ body {
     padding-bottom: 50px;
 
     .title {
-        font-size: 48px;
+        font-size: 60px;
     }
 
     .description {
-        font-size: 24px;
+        font-size: 34px;
     }
 
     .sub-description {
         margin-top: 5px;
-        font-size: 10px;
+        font-size: 18px;
     }
 
     .buttons {
@@ -67,7 +72,6 @@ pre {
     }
 
     .main {
-        // margin-top: 20px;
         text-align: center;
 
         p {
@@ -76,25 +80,65 @@ pre {
     }
 }
 
-.juttle-examples {
+.juttle-example {
     text-align: left;
-    margin-left: 20px;
-    margin-right: 20px;
+    border-radius: 4px;
+    border: 1px solid $gray;
+    padding: 20px 20px;
+    margin-bottom: 20px;
 
-    font-size: 18px;
+    h3 {
+        margin-top: 0;
+    }
 
-    .name {
-        font-weight: bold;
+    .description {
+        font-size: 18px;
+        color: $gray-dark;
+        // font-family: 'Courier New', monospace;
     }
 
     .code {
         font-family: 'Courier new', monospace;
-        font-size: 16px;
+        font-size: 18px;
         text-align: left;
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 10px;
+        line-height: 32px;
+
         .adapter {
+            line-height: 22px;
             display: inline-block;
-            color: $primary;
+            background-color: transparentize($secondary, 0.8);
+            border: 1px solid transparentize(darken($secondary, 10%), 0.8);
+            padding: 0px 10px;
+            border-radius: 4px;
+            color: darken($secondary, 15%);
+            text-align: center;
+            width: 120px !important;
+            // font-weight: 600;
+
+            &:before, &:after {
+                line-height:16px;
+                font-size: 1px;
+                content: "\00a0";
+            }
         }
+    }
+}
+
+.adapters-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    font-size: 18px;
+
+    & > a {
+        width: 80px;
+        display: block;
+        text-align: left;
+        margin: 20px 20px;
     }
 }
 
