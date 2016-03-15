@@ -51,7 +51,7 @@ pre {
 }
 
 .sections {
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 40px;
 }
 
@@ -83,18 +83,18 @@ pre {
 .juttle-example {
     text-align: left;
     border-radius: 4px;
-    border: 1px solid $gray;
-    padding: 20px 20px;
-    margin-bottom: 20px;
+    // border: 1px solid $gray;
+    // padding: 20px 20px;
+    margin-bottom: 40px;
 
     h3 {
         margin-top: 0;
+        margin-bottom: 20px;
     }
 
     .description {
         font-size: 18px;
         color: $gray-dark;
-        // font-family: 'Courier New', monospace;
     }
 
     .code {
@@ -106,6 +106,7 @@ pre {
         border-radius: 4px;
         padding: 10px;
         line-height: 32px;
+        margin-bottom: 20px;
 
         .adapter {
             line-height: 22px;

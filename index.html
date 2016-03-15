@@ -23,11 +23,8 @@
             <div class="section container">
                 <div class="juttle-example">
                     <h3>
-                        Write once, run against anything
+                        Write once, run against anything:
                     </h3>
-                    <p class="description">
-                        Find all the log lines with status_code 500 in the last day and return the per-minute counts - either from splunk, a file, or elastic:
-                    </p>
                     <div class="code highlight">
                         <span class="kr">read</span>
                         <span id="log-example-adapter" class="adapter" style="width: 60px;"></span>
@@ -35,14 +32,16 @@
                         <span class="o">|</span> <span class="kr">reduce</span> -every
                         <span class="s s-Moment">:1m:</span> count()
                     </div>
+                    <p class="description">
+                        Find all the log lines with status_code 500 in the last
+                        day and return the per-minute counts - either from
+                        splunk, a file, or elastic.
+                    </p>
                 </div>
                 <div class="juttle-example">
                     <h3>
-                        Moving averages are just one line away
+                        Moving averages are just one line away:
                     </h3>
-                    <p class="description">
-                        Return the 1 hour moving average CPU usage, updated every minute:
-                    </p>
                     <div class="code highlight">
                         <span class="kr">read</span>
                         <span id="moving-average-example-adapter" class="adapter" style="width: 80px;"></span>
@@ -53,6 +52,9 @@
                         <span class="s s-Moment">:1h:</span> -every
                         <span class="s s-Moment">:1m:</span> avg(<span class="s2">'value'</span>) by host
                     </div>
+                    <p class="description">
+                        Return the 1 hour moving average CPU usage, updated every minute.
+                    </p>
                 </div>
             </div>
             <div class="section center-block">
