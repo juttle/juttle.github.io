@@ -53,33 +53,33 @@
                         name = <span class="s2">'cpu'</span>
                         <br />
                         <span class="o">|</span> <span class="kr">reduce</span> -over
-                        <span class="s s-Moment">:1h:</span> -every
-                        <span class="s s-Moment">:1m:</span> avg(<span class="s2">'value'</span>) by host<br>
+                        <span class="s s-Moment">:5m:</span> -every
+                        <span class="s s-Moment">:30s:</span> avg(<span class="s2">'value'</span>) by host<br>
                         <span class="o">|</span> <span class="kr">view</span> timechart
                     </div>
                     <p class="description">
-                        Return the 1 hour moving average CPU usage, updated every minute and streaming live.
+                        Plot a 5 minute moving average CPU usage, grouped by host, starting one hour ago and updating every 30 seconds.
                     </p>
                 </div>
                 <div class="juttle-example">
                     <h3>
-                        Join access logs with a users database to show the top 10 site visitors by customer:
+                        Join data from disparate sources:
                     </h3>
                     <div class="code highlight">
                         <span class="o">(</span><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="kr">read</span> elastic -from <span class="s s-Moment">:1 hour ago:</span> -to <span class="s s-Moment">:end:</span> source=<span class="s">"access_log"</span><br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="kr">read</span> elastic -last <span class="s s-Moment">:1 day:</span> source=<span class="s">"access_log"</span><br />
                             &nbsp;&nbsp;&nbsp;&nbsp;| <span class="kr">reduce</span> count() by user_id;<br />
                             <br />
                             &nbsp;&nbsp;&nbsp;&nbsp;<span class="kr">read</span> postgres -table <span class="s">"users"</span>;<br />
                         <span class="o">)</span><br />
                         <span class="o">|</span> <span class="kr">join</span> user_id<br />
-                        <span class="o">|</span> <span class="kr">reduce</span> count=sum(count) by customer<br />
+                        <span class="o">|</span> <span class="kr">reduce</span> count=sum(count) by company<br />
                         <span class="o">|</span> <span class="kr">sort</span> count -desc<br />
                         <span class="o">|</span> <span class="kr">head</span> 10<br />
                         <span class="o">|</span> <span class="kr">view</span> barchart
                     </div>
                     <p class="description">
-                        Count the access logs which are tagged with the user id, join with the users database to map each user's id to the company name, then add up the counts by company and display the top 10 in a barchart.
+                        Count the access logs for the past day by user_id, join with the static users database to map each user's id to the correpsonding company name, then add up the counts by company and display the top 10 in a barchart.
                     </p>
                 </div>
             </div>
