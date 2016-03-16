@@ -400,4 +400,11 @@ pre {
   .components pre {
     height: 250px; }
 
+.navbar-container {
+  max-width: 1000px; }
+  .navbar-container a {
+    color: black; }
+  .navbar-container .icon-bar {
+    background-color: black; }
+
 /*# sourceMappingURL=main.css.map */
