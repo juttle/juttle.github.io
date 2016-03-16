@@ -292,6 +292,14 @@ green     #859900  operators, other keywords
 body {
   background-color: #eee; }
 
+header {
+  background-color: #4D7888;
+  border-bottom: 1px solid #446a78; }
+  header .navbar-container a {
+    color: white !important; }
+  header .nav > li > a:hover {
+    background-color: #6294a6; }
+
 .hero {
   background-color: #4D7888;
   text-align: center;

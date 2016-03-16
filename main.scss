@@ -9,6 +9,19 @@ body {
     background-color: #eee;
 }
 
+header {
+    .navbar-container a {
+        color: lighten($primary, 60%) !important;
+    }
+
+    .nav>li>a:hover {
+        background-color: lighten($primary, 10%);
+    }
+    
+    background-color: $primary;
+    border-bottom: 1px solid darken($primary, 5%);
+}
+
 .hero {
     background-color: $primary;
     text-align: center;
