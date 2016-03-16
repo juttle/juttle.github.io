@@ -10,6 +10,28 @@
         <link rel="stylesheet" type="text/css" href="dist/main.css">
     </head>
     <body>
+        <header>
+        <div class="container navbar-container">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#juttle-navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="juttle-navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="https://github.com/juttle/juttle">GitHub</a></li>
+                    <li><a href="http://juttle.github.io/juttle/">Docs</a></li>
+                    <li><a href="https://github.com/juttle/juttle/wiki">Wiki</a></li>
+                    <li><a href="https://www.jut.io/">Company</a></li>
+                    <li><a href="https://gitter.im/juttle/juttle">Chat</a></li>
+                </ul>
+            </div>
+        </div>
+        </header>
+
         <div class="hero">
             <div class="title">Juttle</div>
             <div class="description">One query language* to rule them all</div>
@@ -28,32 +50,55 @@
                     <div class="code highlight">
                         <span class="kr">read</span>
                         <span id="log-example-adapter" class="adapter" style="width: 60px;"></span>
-                        -last <span class="s s-Moment">:1 day:</span> status_code = <span class="mi">500</span>
+                        -last <span class="s s-Moment">:day:</span> status_code=<span class="mi">500</span><br>
                         <span class="o">|</span> <span class="kr">reduce</span> -every
-                        <span class="s s-Moment">:1m:</span> count()
+                        <span class="s s-Moment">:1m:</span> count()<br>
+                        <span class="o">|</span> <span class="kr">view</span> table
                     </div>
                     <p class="description">
                         Find all the log lines with status_code 500 in the last
-                        day and return the per-minute counts - either from
+                        day and return the per-hour counts - either from
                         splunk, a file, or elastic.
                     </p>
                 </div>
                 <div class="juttle-example">
                     <h3>
-                        Moving averages are just one line away:
+                        Mixed historical / live moving averages are just one line away:
                     </h3>
                     <div class="code highlight">
                         <span class="kr">read</span>
                         <span id="moving-average-example-adapter" class="adapter" style="width: 80px;"></span>
-                        -last <span class="s s-Momemnt">:6 hours:</span>
+                        -from <span class="s s-Moment">:1 hour ago:</span> -to <span class="s s-Moment">:end:</span>
                         name = <span class="s2">'cpu'</span>
                         <br />
                         <span class="o">|</span> <span class="kr">reduce</span> -over
-                        <span class="s s-Moment">:1h:</span> -every
-                        <span class="s s-Moment">:1m:</span> avg(<span class="s2">'value'</span>) by host
+                        <span class="s s-Moment">:5m:</span> -every
+                        <span class="s s-Moment">:30s:</span> avg(<span class="s2">'value'</span>) by host<br>
+                        <span class="o">|</span> <span class="kr">view</span> timechart
                     </div>
                     <p class="description">
-                        Return the 1 hour moving average CPU usage, updated every minute.
+                        Plot a 5 minute moving average CPU usage, grouped by host, starting one hour ago and updating every 30 seconds.
+                    </p>
+                </div>
+                <div class="juttle-example">
+                    <h3>
+                        Join data from disparate sources:
+                    </h3>
+                    <div class="code highlight">
+                        <span class="o">(</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="kr">read</span> elastic -last <span class="s s-Moment">:1 day:</span> source=<span class="s">"access_log"</span><br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;| <span class="kr">reduce</span> count() by user_id;<br />
+                            <br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="kr">read</span> postgres -table <span class="s">"users"</span>;<br />
+                        <span class="o">)</span><br />
+                        <span class="o">|</span> <span class="kr">join</span> user_id<br />
+                        <span class="o">|</span> <span class="kr">reduce</span> count=sum(count) by company<br />
+                        <span class="o">|</span> <span class="kr">sort</span> count -desc<br />
+                        <span class="o">|</span> <span class="kr">head</span> 10<br />
+                        <span class="o">|</span> <span class="kr">view</span> barchart
+                    </div>
+                    <p class="description">
+                        Count the access logs for the past day by user_id, join with the static users database to map each user's id to the corresponding company name, then add up the counts by company and display the top 10 in a barchart.
                     </p>
                 </div>
             </div>
