@@ -369,16 +369,17 @@ pre {
     padding: 10px;
     line-height: 32px;
     margin-bottom: 20px; }
+    .juttle-example .code .adapter-container {
+      display: inline-block; }
     .juttle-example .code .adapter {
       line-height: 22px;
-      display: inline-block;
+      display: inline;
       background-color: rgba(243, 157, 0, 0.2);
       border: 1px solid rgba(192, 124, 0, 0.2);
       padding: 0px 10px;
       border-radius: 4px;
       color: #a76c00;
-      text-align: center;
-      width: 120px !important; }
+      text-align: left; }
       .juttle-example .code .adapter:before, .juttle-example .code .adapter:after {
         line-height: 16px;
         font-size: 1px;

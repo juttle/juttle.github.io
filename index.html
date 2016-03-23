@@ -50,7 +50,9 @@
                     </h3>
                     <div class="code highlight">
                         <span class="kr">read</span>
-                        <span id="log-example-adapter" class="adapter" style="width: 60px;"></span>
+                        <div class="adapter-container" style="width: 100px;">
+                            <span id="log-example-adapter" class="adapter"</span>
+                        </div>
                         -last <span class="s s-Moment">:day:</span> status_code=<span class="mi">500</span><br>
                         <span class="o">|</span> <span class="kr">reduce</span> -every
                         <span class="s s-Moment">:1m:</span> count()<br>
@@ -68,7 +70,9 @@
                     </h3>
                     <div class="code highlight">
                         <span class="kr">read</span>
-                        <span id="moving-average-example-adapter" class="adapter" style="width: 80px;"></span>
+                        <div class="adapter-container" style="width: 110px;">
+                            <span id="moving-average-example-adapter" class="adapter"></span>
+                        </div>
                         -from <span class="s s-Moment">:1 hour ago:</span> -to <span class="s s-Moment">:end:</span>
                         name = <span class="s2">'cpu'</span>
                         <br />

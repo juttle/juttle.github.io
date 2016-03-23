@@ -121,17 +121,19 @@ pre {
         line-height: 32px;
         margin-bottom: 20px;
 
+        .adapter-container {
+            display: inline-block;
+        }
+
         .adapter {
             line-height: 22px;
-            display: inline-block;
+            display: inline;
             background-color: transparentize($secondary, 0.8);
             border: 1px solid transparentize(darken($secondary, 10%), 0.8);
             padding: 0px 10px;
             border-radius: 4px;
             color: darken($secondary, 15%);
-            text-align: center;
-            width: 120px !important;
-            // font-weight: 600;
+            text-align: left;
 
             &:before, &:after {
                 line-height:16px;
